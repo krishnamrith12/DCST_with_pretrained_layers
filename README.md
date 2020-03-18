@@ -34,7 +34,7 @@ Refer to corrsoponding section in `run_dcsh.sh` to run corrsopnding segments.
 
 ## Input settings:
 1. Without POS Tag       : Don't use flag `--use_pos` for all stages, namely, base model, auxiliary tasks, Final ensembled model.
-2. With Coarse level Tag : Use the input files from `data` folder from [here](https://drive.google.com/drive/folders/15z28d-boFhhZMdriJZY4tNcZeHiL-naW?usp=sharing) 
+2. With Coarse level Tag : Use the input files from `data` folder from `--use_pos` flag [here](https://drive.google.com/drive/folders/15z28d-boFhhZMdriJZY4tNcZeHiL-naW?usp=sharing) 
 3. With POS level Tag    : Shuffle 2nd and 3rd column of all the files in  `data` folder.
 
 ## Mode:
@@ -42,19 +42,4 @@ Add pretrained model file from [Here](https://drive.google.com/drive/folders/15z
 1. Pretrained morph tagger layer : Run the `run_dcst.sh`. 
 2. Pretrained morph tagger layer with freezing: comment [this](https://github.com/Jivnesh/DCST_with_pretrained_layers/blob/cf22743acfb03b10cb9ef4c67eca1b8faa753039/examples/GraphParser.py#L311) and then run `run_dcst.sh`
 
-## Running the base Biaffine Parser
-Note that to run BiAFF classifier on 500 training data set `--set_num_training_samples 500`. And if you want to train on complete trainind data remove this flag. 
-Refer to corrsoponding section in `run_dcsh.sh`
-
-## Running the Sequence Tagger
-Once training the base parser, we can now run the Sequnece Tagger on any of the three proposed sequence tagging tasks in order to learn the syntactical contextualized word embeddings from the unlabeled data set. \
-1. For Auxiliary task set tasks as : 'number_of_children' 'relative_pos_based' 'distance_from_the_root'
-2. For Multitask setting set tasks : 'Multitask_case_predict' 'Multitask_POS_predict' 'Multitask_label_predict'
-
-Refer to corrsoponding section in `run_dcsh.sh`
-
-## Final step - Running the Combined DCST Parser
-As a final step we can now run the DCST (ensemble) parser:
-
-Refer to corrsoponding section in `run_dcsh.sh`
 
